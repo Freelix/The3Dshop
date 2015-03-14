@@ -1,0 +1,16 @@
+<div class="container">
+    <section class="listings">
+      <div class="properties_list">
+        <% @items.each do |item| %>
+            <div class="picture">
+              <%= link_to(image_tag(item.image.url(:med), :class => "property_img"), item) %>
+              <span class="price">$<%= item.price %></span>
+              <div class="property_details">
+                  <h2><%= item.name %></h2>
+                  <h3><%= item.preview_description %></h3>
+              </div>
+            </div>
+        <% end %>      
+      </div>
+    </section>
+</div>

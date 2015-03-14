@@ -1,0 +1,5 @@
+<%= render "devise/shared/links" %>
+
+<% flash.each do |name, msg| %>
+  <h2 class="text_center"> <%= content_tag :div, msg, :id => "flash_#{name}", :class => "label label-warning" %> </h2>
+<% end %>

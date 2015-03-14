@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The3dshop</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Custom files -->
+  <%= stylesheet_link_tag "style" %>
+  <%= stylesheet_link_tag "bootstrap.min" %>
+
+  <%= javascript_include_tag "bootstrap.min" %>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	    <div class="container">
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="./index.html">
+	                <img src="img/Sell_Home-256.png" class="mainLogo" alt="House logo" title=""/>
+	            </a>
+	        </div>
+
+	        <div id="navbar" class="collapse navbar-collapse">
+
+	            <ul class="nav navbar-nav">
+	                <li class="active"><%= link_to "Home", items_path %></li>
+	                <li><a href="./about_us.html">About</a></li>
+	            </ul>
+
+	            <ul class="nav navbar-nav navbar-right">
+	                <% if user_signed_in? %>
+	                <li>
+	                	<%= link_to "User Page", current_user %>
+	                </li>
+					<li>
+					    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+					</li>
+					<% else %>
+                    <li>
+					    <%= link_to "Sign in", new_user_session_path  %>
+					</li>
+					<li>
+					    <%= link_to "Sign Up", new_user_registration_path %>
+					</li>
+					<% end %>
+	            </ul>
+	        </div>
+	    </div>
+    </nav>
+
+	<%= yield %>
+
+</body>
+</html>
