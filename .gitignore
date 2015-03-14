@@ -6,6 +6,7 @@ capybara-*.html
 /syncedFiles/the3dshop/db/*.sqlite3
 /syncedFiles/the3dshop/db/*.sqlite3-journal
 /syncedFiles/the3dshop/public/system
+/syncedFiles/the3dshop/public/assets
 /syncedFiles/the3dshop/coverage/
 /syncedFiles/the3dshop/spec/tmp
 **.orig
