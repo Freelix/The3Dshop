@@ -18,7 +18,7 @@
     <tbody>
       <% @items.each do |item| %>
         <tr>
-          <td><%= item.name %></td>
+          <td><%= current_user.cart_order_id %></td>
           <td><%= item.price %></td>
           <td><%= item.description %></td>
           <td><%= item.published %></td>

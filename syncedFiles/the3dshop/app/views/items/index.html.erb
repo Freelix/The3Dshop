@@ -2,9 +2,11 @@
     <section class="listings">
       <div class="properties_list">
         <% @items.each do |item| %>
+            <% @item = item %>
+
             <div class="picture">
               <%= link_to(image_tag(item.image.url(:med), :class => "property_img"), item) %>
-              <span class="price">$<%= item.price %></span>
+              <span class="price">$<%= format_price %></span>
               <div class="property_details">
                   <h2><%= item.name %></h2>
                   <h3><%= item.preview_description %></h3>

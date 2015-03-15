@@ -10,11 +10,17 @@
     <div class="item_details">
         <%= image_tag(@item.image.url(:big), :class => "property_img", :id =>"houseImage") %>
         <div>
-          <button type="button" class="btn btn-primary btn_add_to_cart">Add to your cart !</button>
+          <% if current_user != @item.user %>
+            <%= form_for @order_item, remote: true do |f| %>
+              <%= f.hidden_field :item_id, value: @item.id %>
+              <%= f.submit "Add to Cart !", class: "btn btn-primary btn_submit" %>
+            <% end %>
+          <% end %>
+
           <label>Price</label>
-          <p><%= @item.price %> $</p>
+          <p class="item_price"><%= format_price %> $</p>
           <label>Description</label>
-          <p class="houseDescription">
+          <p>
             <%= simple_format h(@item.description)  %>
           </p>
         </div>

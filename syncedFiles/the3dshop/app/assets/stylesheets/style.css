@@ -42,10 +42,10 @@ Logo
 *************************************************************************************/
 
 .mainLogo {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     position: relative;
-    bottom: 20px;
+    bottom: 3px;
 }
 
 /************************************************************************************
@@ -124,13 +124,39 @@ Input style
     margin: 65px 0px 0px 0px;
 }
 
-.btn.btn-primary.btn_add_to_cart {
-    float: right;
+.item_price {
+    font-size: 24px;
+}
+
+.item_details label {
     font-size: 28px;
+}
+
+.btn.btn-primary.btn_submit {
+    float: right;
+    font-size: 26px;
 }
 
 .form-control.item_description {
     height: 300px;
+}
+
+.collapse.navbar-collapse.text {
+    position: relative;
+    font-size: 23px;
+    top: 15px;
+}
+
+.mainContent {
+    margin-top: 80px;
+}
+
+.text-right.total_price {
+    margin: 35px 0px 35px 0px;
+}
+
+.text-right.total_price span {
+    color: green;
 }
 
 /************************************************************************************

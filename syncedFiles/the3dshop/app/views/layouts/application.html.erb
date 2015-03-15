@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>The3dshop</title>
+
+  <!-- Default settings -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,15 +11,15 @@
   <!-- Custom files -->
   <%= stylesheet_link_tag "style" %>
 
-  
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <!-- Bootstrap -->
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %> 
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,12 +30,10 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="./">
-	                <%= image_tag("logo.png", alt: "Example Image", class: "mainLogo") %>
-	            </a>
+	            <%= image_tag("logo.png", alt: "Example Image", class: "mainLogo") %>
 	        </div>
 
-	        <div id="navbar" class="collapse navbar-collapse">
+	        <div id="navbar" class="collapse navbar-collapse text">
 
 	            <ul class="nav navbar-nav">
 	                <li><%= link_to "Home", items_path %></li>
@@ -42,10 +42,13 @@
 	            <ul class="nav navbar-nav navbar-right">
 	                <% if user_signed_in? %>
 	                <li>
-	                	<%= link_to "User Page", current_user %>
+	                	<%= link_to current_user.firstname + " " + current_user.lastname + " page", current_user %>
 	                </li>
 					<li>
 					    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+					</li>
+					<li class="cart-text">
+						<%= render 'layouts/cart_text' %>
 					</li>
 					<% else %>
                     <li>
@@ -60,7 +63,9 @@
 	    </div>
     </nav>
 
-	<%= yield %>
+    <div class="mainContent">
+	    <%= yield %>
+    </div>
 
 </body>
 </html>
