@@ -159,6 +159,25 @@ Input style
     color: green;
 }
 
+.table.table-hover.checkout {
+    margin-bottom: 50px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.container hr {
+    margin-bottom: 50px;
+}
+
+.checkout_div {
+    margin-bottom: 120px;
+}
+
+.amount {
+    font-size: 22px;
+    margin-bottom: 32px;
+}
+
 /************************************************************************************
 Property details
 *************************************************************************************/

@@ -21,7 +21,8 @@
         <% total_price += order_item.item.price %>
       <% end %>
       <h4 class="text-right total_price">Total Price: <span><%= number_to_currency total_price %></span></h4>
-      <button type="button" class="btn btn-primary btn_submit">Proceed to Checkout</button>
+
+      <%= link_to "Proceed to Checkout", new_checkouts_path(), :class => "btn btn-primary btn_submit" %>
     <% end %>
   </div>
 </div>

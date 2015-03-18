@@ -3,9 +3,10 @@
 <head>
   <title>The3dshop</title>
 
+  <!-- Stripe -->
+  <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
+
   <!-- Default settings -->
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <!-- Custom files -->
@@ -36,13 +37,13 @@
 	        <div id="navbar" class="collapse navbar-collapse text">
 
 	            <ul class="nav navbar-nav">
-	                <li><%= link_to "Home", items_path %></li>
+	                <li><%= link_to "The3Dshop", items_path %></li>
 	            </ul>
 
 	            <ul class="nav navbar-nav navbar-right">
 	                <% if user_signed_in? %>
 	                <li>
-	                	<%= link_to current_user.firstname + " " + current_user.lastname + " page", current_user %>
+	                	<%= link_to current_user.firstname + " " + current_user.lastname + " - Home", current_user %>
 	                </li>
 					<li>
 					    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
