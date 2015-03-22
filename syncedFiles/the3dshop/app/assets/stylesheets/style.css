@@ -111,6 +111,10 @@ Input style
     text-align: center;
 }
 
+.footer {
+    margin-top: 40px;
+}
+
 .text_center {
     text-align: center;
 }
@@ -133,7 +137,7 @@ Input style
 }
 
 .btn.btn-primary.btn_submit {
-    float: right;
+    
     font-size: 26px;
 }
 
@@ -142,9 +146,18 @@ Input style
 }
 
 .collapse.navbar-collapse.text {
-    position: relative;
-    font-size: 23px;
-    top: 15px;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.mainLogoText {
+    color: grey;
+    font-size: 21px;
+}
+
+.mainLogoText:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .mainContent {
@@ -178,73 +191,24 @@ Input style
     margin-bottom: 32px;
 }
 
-/************************************************************************************
-Property details
-*************************************************************************************/
-
-.listings .picture .property_details{
-    width: 87.64705882352941%;
-    padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
+/*.navbar-collapse.collapse {
+    display: block!important;
 }
 
-.listings .picture .property_details h1{
-    color: #666464;
-    font-family: "lato-bold", Helvetica, Arial, sans-serif;
-    font-size: 16px!important;
-    font-weight: bold;
-    margin-bottom: 5px;
-    line-height: 28px;
+.navbar-nav>li, .navbar-nav {
+    float: left !important;
+    margin-left: 20px;
 }
 
-.listings .picture .property_details h1 a{
-    text-decoration: none;
-    color: #666464;
-}
-
-.listings .picture .property_details h2{
-    color: #9d9d9d;
-    font-family: "lato-regular", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    line-height: 26px;
-    font-weight: normal;
-}
-
-/************************************************************************************
-Google Maps
-*************************************************************************************/
-
-.googlemaps {
-    width: 800px;
-    height: 400px;
-    margin-bottom: 20px;
-}
-
-/************************************************************************************
-Contact Us
-*************************************************************************************/
-
-.contact_us {
-    margin-bottom: 50px;
-}
-
-.contact_us input {
-    width: 300px;
-}
-
-.contact_us textarea {
-    width: 650px;
-}
-
-.contact_us button {
-    margin-left: 500px;
-    width: 150px;
-}
+.navbar-right {
+    float: right!important;
+}*/
 
 /************************************************************************************
 Information about house
 *************************************************************************************/
 
-#houseImage {
+#itemImage {
     margin-right: 25px;
     margin-bottom: 25px;
     float: left;
@@ -259,107 +223,66 @@ Information about house
 Media queries
 *************************************************************************************/
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
 
-    .listings .properties_list .picture {
-        width: 46%;
-    }
-
-    .listings .properties_list .picture:nth-child(3n+0){
-        margin-right: 3.63%;
-    }
-
-    .googlemaps{
-        width: 550px;
-        height: 300px;
-    }
-
-    .contact_us textarea {
-        width: 550px;
-    }
-
-    .contact_us button {
-        margin-left: 400px;
-    }
-
-    .btn.btn-primary.btn_add_to_cart {
-        position: absolute;
-        display: block;
-    }
-
-    #houseImage {
-        margin-top: 70px;
+    #itemImage {
+        width: 420px;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
 
-    .listings .properties_list .picture {
-        width: 95%;
-    }
-
-    .googlemaps{
-        width: 400px;
-        height: 300px;
-    }
-
-    .contact_us textarea {
+    #itemImage {
         width: 450px;
     }
 
-    .contact_us button {
-        margin-left: 300px;
+    .field {
+        width: 350px;
     }
 
-    #houseImage {
-        width: 415px;
+    .actions {
+        width: 350px;
+    }
+
+    .item_text {
+        color: red;
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    #itemImage {
+        width: 370px;
     }
 }
 
 @media screen and (max-width: 425px) {
 
-    .listings .properties_list .picture {
-        width: 95%;
+    #itemImage {
+        width: 320px;
     }
 
-    .googlemaps {
-        width: 300px;
-        height: 150px;
-    }
-
-    .contact_us textarea {
+    .field {
         width: 300px;
     }
 
-    .contact_us button {
-        margin-left: 150px;
-    }
-
-    #houseImage {
-        width: 340px;
+    .actions {
+        width: 300px;
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 360px) {
 
-    .listings .properties_list .picture {
-        width: 95%;
+    #itemImage {
+        width: 230px;
     }
 
-    .googlemaps {
-        width: 270px;
-        height: 150px;
+    .field {
+        width: 230px;
     }
 
-    .contact_us textarea {
-        width: 300px;
-    }
-
-    .contact_us button {
-        margin-left: 150px;
-    }
-
-    #houseImage {
-        width: 270px;
+    .actions {
+        width: 230px;
     }
 }

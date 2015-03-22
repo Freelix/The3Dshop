@@ -1,6 +1,7 @@
 <div class="container">
   <div class="starter-template">
     <h1><%= @item.name %></h1>
+    <%= render 'submit_control' %>
 
     <% if current_user == @item.user %>
       <%= link_to 'Edit this item', edit_item_path(@item) %> <br>
@@ -8,15 +9,8 @@
     <% end %>
 
     <div class="item_details">
-        <%= image_tag(@item.image.url(:big), :class => "property_img", :id =>"houseImage") %>
-        <div>
-          <% if current_user != @item.user %>
-            <%= form_for @order_item, remote: true do |f| %>
-              <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.submit "Add to Cart !", class: "btn btn-primary btn_submit" %>
-            <% end %>
-          <% end %>
-
+        <%= image_tag(@item.image.url(:big), :class => "property_img", :id =>"itemImage") %>
+        <div class="item_text">
           <label>Price</label>
           <p class="item_price"><%= format_price %> $</p>
           <label>Description</label>
