@@ -1,5 +1,10 @@
+<% content_for :title do %>
+  <title>Forgot your password - The3DShop</title>
+<% end %>
+
 <div class="container">
     <h2 class="form-signin-heading">Forgot your password?</h2>
+    
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
 	  <div class="field">

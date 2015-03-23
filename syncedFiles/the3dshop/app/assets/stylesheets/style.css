@@ -1,10 +1,3 @@
-
-/***
-    Le fichier style.css, sur lockowl.ca, est minified !
-    Celui-ci est une version plus belle pour que vous soyez capable
-    de bien lire le code.
-***/
-
 /************************************************************************************
 General CSS
 *************************************************************************************/
@@ -91,7 +84,7 @@ Home page main section
 }
 
 /************************************************************************************
-Input style
+Input
 *************************************************************************************/
 
 .field {
@@ -107,14 +100,6 @@ Input style
     margin-bottom: 15px;
 }
 
-.container {
-    text-align: center;
-}
-
-.footer {
-    margin-top: 40px;
-}
-
 .text_center {
     text-align: center;
 }
@@ -123,27 +108,13 @@ Input style
     font-size: 25px;
 }
 
-.item_details {
-    text-align: left;
-    margin: 65px 0px 0px 0px;
-}
-
-.item_price {
-    font-size: 24px;
-}
-
-.item_details label {
-    font-size: 28px;
-}
-
 .btn.btn-primary.btn_submit {
-    
     font-size: 26px;
 }
 
-.form-control.item_description {
-    height: 300px;
-}
+/************************************************************************************
+Layout
+*************************************************************************************/
 
 .collapse.navbar-collapse.text {
     font-size: 22px;
@@ -162,7 +133,16 @@ Input style
 
 .mainContent {
     margin-top: 80px;
+    margin-bottom: 50px;
 }
+
+.container {
+    text-align: center;
+}
+
+/************************************************************************************
+Cart, Checkout
+*************************************************************************************/
 
 .text-right.total_price {
     margin: 35px 0px 35px 0px;
@@ -191,21 +171,25 @@ Input style
     margin-bottom: 32px;
 }
 
-/*.navbar-collapse.collapse {
-    display: block!important;
+.image_cart {
+    float: left;
 }
 
-.navbar-nav>li, .navbar-nav {
-    float: left !important;
-    margin-left: 20px;
+.col-xs-4.cart_row_item_price {
+    text-align: right;
 }
 
-.navbar-right {
-    float: right!important;
-}*/
+.checkout_verify_info {
+    font-size: 20px;
+}
+
+.checkout_verify_info_email {
+    font-size: 15px;
+    color: red;
+}
 
 /************************************************************************************
-Information about house
+Item
 *************************************************************************************/
 
 #itemImage {
@@ -214,19 +198,39 @@ Information about house
     float: left;
 }
 
-.contact_information label {
-    margin-bottom: 10px;
-    display: block;
+.item_details {
+    text-align: left;
+    margin: 65px 0px 0px 0px;
+}
+
+.item_price {
+    font-size: 24px;
+}
+
+.item_details label {
+    font-size: 28px;
+}
+
+.form-control.item_description {
+    height: 300px;
 }
 
 /************************************************************************************
 Media queries
 *************************************************************************************/
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 980px) {
 
     #itemImage {
         width: 420px;
+    }
+
+    .listings .properties_list .picture {
+        width: 46%;
+    }
+
+    .listings .properties_list .picture:nth-child(3n+0){
+        margin-right: 3.63%;
     }
 }
 
@@ -245,8 +249,17 @@ Media queries
     }
 
     .item_text {
-        color: red;
         clear: both;
+    }
+
+    .listings .properties_list .picture {
+        width: 80%;
+    }
+
+    .cart_row_item_text {
+        clear: both;
+        float: left;
+        width: 100%;
     }
 }
 
@@ -254,6 +267,12 @@ Media queries
 
     #itemImage {
         width: 370px;
+    }
+
+    .col-xs-4.cart_row_item_price {
+        clear: both;
+        text-align: left;
+        float: left;
     }
 }
 
@@ -270,6 +289,15 @@ Media queries
     .actions {
         width: 300px;
     }
+
+    .listings .properties_list .picture {
+        width: 95%;
+    }
+
+    .cart_row_item_text {
+        text-align: center;
+        margin-left: 25px;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -278,11 +306,19 @@ Media queries
         width: 230px;
     }
 
+    .image_cart {
+        width: 200px;
+    }
+
     .field {
         width: 230px;
     }
 
     .actions {
+        width: 230px;
+    }
+
+    .image_models_page {
         width: 230px;
     }
 }

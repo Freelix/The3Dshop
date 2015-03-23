@@ -1,44 +1,49 @@
-
-<% if @showTable %>
-
-  <h1>Listing your items</h1>
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Published</th>
-        <th>Image</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @items.each do |item| %>
-        <tr>
-          <td><%= current_user.cart_order_id %></td>
-          <td><%= item.price %></td>
-          <td><%= item.description %></td>
-          <td><%= item.published %></td>
-          <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td>
-          <td><%= link_to 'Show', item %></td>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
-
-<% else %>
-
-  <h1>You did not create any items yet</h1>
-
+<% content_for :title do %>
+  <title><%= current_user.firstname %>'s models - The3DShop</title>
 <% end %>
 
-<br>
+<div class="container">
+  <% if @showTable %>
 
-<%= link_to 'New Item', new_item_path %>
+    <h1>Listing your items</h1>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Published</th>
+          <th>Image</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= number_to_currency item.price %></td>
+            <td><%= item.description %></td>
+            <td><%= item.published %></td>
+            <td><%= link_to image_tag(item.image.url(:med), :class => "image_models_page"), item.image.url %></td>
+            <td><%= link_to 'Show', item %></td>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
+            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
+
+  <% else %>
+
+    <h1>You did not create any items yet</h1>
+
+  <% end %>
+
+  <br>
+
+  <%= link_to 'New Item', new_item_path %>
+</div>
