@@ -6,7 +6,7 @@ Coéquipier 3
 
 ### Adresse de votre site Web (URL)
 
-http://www.exemple.com
+http://the3dshop.ca/
 
 ### Résumé des efforts SEO :
 
@@ -28,6 +28,24 @@ Résumé de vos efforts
 * Point 2
 	* Sous-point 2.1
 	* Sous-point 2.2
+
+---
+
+### Installation de l'environnement
+
+* Télécharger et installer [Vagrant](https://www.vagrantup.com/)
+* Télécharger et installer [Virtual Box](https://www.virtualbox.org/)
+* Télécharger la [box](https://drive.google.com/file/d/0B-nuwSqBCh4HanR4dmR1VU9fYm8/view?usp=sharing) contenant Ubuntu
+
+Lorsque tout ceci est fait, vous pouvez lancer ces quelques lignes de commandes dans le dossier où vous allez travailler:
+
+```
+vagrant box add the3dshop the3dshop.box
+vagrant init the3dshop
+git clone https://github.com/udes-ige511-h2015/TP_Final5-TP_Final.git
+vagrant up
+vagrant ssh
+```
 
 ---
 
