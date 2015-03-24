@@ -1,6 +1,7 @@
 *.rbc
 capybara-*.html
 .rspec
+*.box
 /syncedFiles/the3dshop/log
 /syncedFiles/the3dshop/tmp
 /syncedFiles/the3dshop/db/*.sqlite3
