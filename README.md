@@ -1,8 +1,8 @@
 ### Nom des coéquipiers :
-Coéquipier 1  
-Coéquipier 2  
-Coéquipier 3  
-Coéquipier 3  
+Mathieu Lavoie  
+Félix Baril  
+Alexandre Roy 
+Alex Provencher 
 
 ### Adresse de votre site Web (URL)
 
