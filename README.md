@@ -41,10 +41,14 @@ Lorsque tout ceci est fait, vous pouvez lancer ces quelques lignes de commandes 
 
 ```
 vagrant box add the3dshop the3dshop.box
-vagrant init the3dshop
 git clone https://github.com/udes-ige511-h2015/TP_Final5-TP_Final.git
+vagrant init the3dshop
 vagrant up
+
 vagrant ssh
+cd syncedFiles/the3dshop
+bundle install
+rails server -b 0.0.0.0
 ```
 
 ---
