@@ -5,7 +5,12 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if params[:search_text] != nil
+      search = params[:search_text]
+      @items = Item.where("name like ?", "%#{search}%")  
+    else
+      @items = Item.all
+    end
   end
 
   # GET /items/1

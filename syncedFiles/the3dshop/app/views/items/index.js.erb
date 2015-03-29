@@ -1,0 +1,14 @@
+$('#results').html("<%= escape_javascript(render :partial => 'results') %>");
+
+$(document).on("ajax:complete", "#testtt", function() {
+  $("#spinner").fadeOut('fast');
+});
+
+/*
+  ajax:before
+  ajax:loading
+  ajax:success
+  ajax:complete
+  ajax:failure
+  ajax:after
+*/

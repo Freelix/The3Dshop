@@ -1,0 +1,14 @@
+<%= form_tag items_path, :method => :get, :remote => true, :id => "testtt", :class => "form-wrapper-search-box cf" do %>
+  <%= text_field_tag :search_text, nil, :placeholder => "Search here..." %>
+  <%= submit_tag "Search", :class => "form-wrapper-search-box button_style" %>
+<% end %>
+
+<div id="spinner">
+  <%= image_tag("loader.gif", alt: "Loading...") %>
+</div>
+
+<script>
+	$(document).on("ajax:beforeSend", "#testtt", function() {
+	  $("#spinner").fadeIn('fast');
+	});
+</script>

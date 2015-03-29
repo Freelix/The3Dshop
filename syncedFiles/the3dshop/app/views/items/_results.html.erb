@@ -1,0 +1,18 @@
+<div id="results">
+	<% if @items.length > 0 %>
+		<% @items.each do |item| %>
+			<% @item = item %>
+
+			<div class="picture">
+				<%= link_to(image_tag(item.image.url(:med), :class => "property_img"), item) %>
+				<span class="price">$<%= format_price %></span>
+				<div class="property_details">
+					<h2><%= item.name %></h2>
+					<h3><%= item.preview_description %></h3>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+	  <h1>No item found</h1>
+	<% end %>
+</div> 

@@ -25,6 +25,9 @@ module The3dshop
 
     # include additionnal css and js files
     config.assets.precompile += %w( style.css )
+    config.assets.precompile += %w( footer.css )
+    config.assets.precompile += %w( table.css )
+    config.assets.precompile += %w( search_box.css )
     config.assets.precompile += %w( bootstrap.min.css )
   end
 end
