@@ -19,11 +19,14 @@
 			<li>
 			    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 			</li>
+      <li>
+          <i class="fa fa-shopping-cart fa-inverse cartImage"></i>
+      </li>
 			<li class="cart-text">
-				<%= render 'layouts/cart_text' %>
+        <%= render 'layouts/cart_text' %>
 			</li>
 			<% else %>
-                <li>
+      <li>
 			    <%= link_to "Sign in", new_user_session_path  %>
 			</li>
 			<li>
