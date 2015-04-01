@@ -5,12 +5,20 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    numberPerPage = 6
     if params[:search_text] != nil
       search = params[:search_text]
       @items = Item.where("name like ?", "%#{search}%")  
     else
       @items = Item.all
     end
+
+    page = if params[:page].to_i > 0
+      params[:page].to_i
+    else
+      1
+    end
+    @items = @items.paginate(:page => page, :per_page => numberPerPage)
   end
 
   # GET /items/1

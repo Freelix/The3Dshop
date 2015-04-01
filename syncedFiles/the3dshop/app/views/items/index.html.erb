@@ -10,4 +10,7 @@
 			  <%= render 'items/results' %> 
 			</div>
 		</section>
+        <div class='pageSelector' >
+            <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
+        </div>
 </div>

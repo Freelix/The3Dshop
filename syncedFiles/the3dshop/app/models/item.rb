@@ -7,5 +7,5 @@ class Item < ActiveRecord::Base
 
     validates_attachment :image, 
       :presence => true,
-      :content_type => { :content_type => "image/jpeg" }
+      :content_type => { :content_type => /^image\/(png|gif|jpeg)/}
 end
