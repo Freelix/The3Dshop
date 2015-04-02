@@ -1,8 +1,8 @@
 ### Nom des coéquipiers :
-Coéquipier 1  
-Coéquipier 2  
-Coéquipier 3  
-Coéquipier 3  
+Mathieu Lavoie - 12 101 575  
+Félix Baril - 12 108 480  
+Alexandre Roy  
+Alex Provencher - 11 173 124  
 
 ### Adresse de votre site Web (URL)
 
@@ -41,10 +41,15 @@ Lorsque tout ceci est fait, vous pouvez lancer ces quelques lignes de commandes 
 
 ```
 vagrant box add the3dshop the3dshop.box
+git clone https://github.com/udes-ige511-h2015/TP_Final5-TP_Final.git  
+cd TP_Final5-TP_Final
 vagrant init the3dshop
-git clone https://github.com/udes-ige511-h2015/TP_Final5-TP_Final.git
 vagrant up
+
 vagrant ssh
+cd syncedFiles/the3dshop
+bundle install
+rails server -b 0.0.0.0
 ```
 
 ---

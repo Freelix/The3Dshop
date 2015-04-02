@@ -188,6 +188,12 @@ Cart, Checkout
     color: red;
 }
 
+.fa.fa-shopping-cart.fa-inverse.cartImage {
+    margin-top: 12px;
+    position: relative;
+    left: 10px;
+}
+
 /************************************************************************************
 Item
 *************************************************************************************/
@@ -213,6 +219,11 @@ Item
 
 .form-control.item_description {
     height: 300px;
+}
+
+.pageSelector{
+    margin-top: 20px;
+    clear: both;
 }
 
 /************************************************************************************
@@ -357,6 +368,10 @@ Media queries
     .cart_row_item_text {
         text-align: center;
         margin-left: 25px;
+    }
+
+    .widthCart{
+        width: 600px;
     }
 }
 
