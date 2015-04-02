@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     numberPerPage = 6
     if params[:search_text] != nil
       search = params[:search_text]
-      @items = Item.where("name like ?", "%#{search}%")  
+      @items = Item.where("LOWER(name) like ?", "%#{search.downcase}%")  
     else
       @items = Item.all
     end
