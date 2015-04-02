@@ -2,6 +2,10 @@
   <title><%= @item.name %> - The3DShop</title>
 <% end %>
 
+<% content_for :description do %>
+  <meta name="description" content="<%= @item.name + " - " + @item.preview_description %>">
+<% end %>
+
 <div class="container">
   <div class="starter-template">
     <h1><%= @item.name %></h1>
@@ -15,14 +19,26 @@
     <div class="item_details">
         <%= image_tag(@item.image.url(:big), :class => "property_img", :id =>"itemImage") %>
         <div class="item_text">
+          <% if @item.categories.length > 0 %>
+            <label>Categories</label>
+            <% categoriesToShow = "" %>
+
+            <% @item.categories.each do |category|
+              categoriesToShow << category.name + ", "
+            end %>  
+
+            <p><%= categoriesToShow[0...-2] %></p>
+          <% end %>
+
           <label>Price</label>
           <p class="item_price"><%= format_price %> $</p>
+
           <label>Description</label>
           <p>
             <%= simple_format h(@item.description)  %>
           </p>
         </div>
-    </div> 
+    </div>
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">

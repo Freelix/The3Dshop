@@ -1,0 +1,11 @@
+<a id="simple-menu" class="btn btn-primary showCategories" href="#">Show categories</a>
+
+<div id="sidr">
+  <ul>
+  	<% @categories.each do |category| %>
+	    <li><a href="#"><%= category.name %></a></li>
+    <% end %>
+    
+    <a id="simple-menu-close" class="btn btn-primary closeCategories" href="#">Close panel</a>
+  </ul>
+</div>

@@ -2,6 +2,10 @@
   <title>Order completed - The3DShop</title>
 <% end %>
 
+<% content_for :description do %>
+  <meta name="description" content="You've just placed an order and an email will be sent to you.">
+<% end %>
+
 <div class="container">
 	<h2>Thank you for shopping at The3DShop !</h2> 
 	<h2>You paid <strong><%= number_to_currency @amount %></strong>!</h2>

@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :order_items
+	has_many :categories
 
     has_attached_file :image, styles: { med: "250x250", big: "450x450" }
 

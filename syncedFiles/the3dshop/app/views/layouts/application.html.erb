@@ -2,6 +2,7 @@
 <html>
 <head>
   <%= yield :title %>
+  <%= yield :description %>
 
   <%= render 'layouts/header' %>
 
@@ -17,15 +18,18 @@
 
   <script>
   $(document).ready(function() {
-
-   var docHeight = $(window).height();
-   var footerHeight = $('.footer-distributed').height();
-   var footerTop = $('.footer-distributed').position().top + footerHeight;
-
-   if (footerTop < docHeight) {
-     $('.footer-distributed').css('margin-top', 5 +(docHeight - footerTop) + 'px');
-   }
+    SetFooter();
   });
+
+  function SetFooter() {
+    var docHeight = $(window).height();
+    var footerHeight = $('.footer-distributed').height();
+    var footerTop = $('.footer-distributed').position().top + footerHeight;
+
+    if (footerTop < docHeight) {
+     $('.footer-distributed').css('margin-top', 5 +(docHeight - footerTop) + 'px');
+    }
+  }
  </script>
 </body>
 </html>

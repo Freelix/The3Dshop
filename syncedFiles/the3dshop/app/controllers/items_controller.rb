@@ -7,10 +7,12 @@ class ItemsController < ApplicationController
   def index
     if params[:search_text] != nil
       search = params[:search_text]
-      @items = Item.where("name like ?", "%#{search}%")  
+      @items = Item.where("name like ?", "%#{search}%")
     else
       @items = Item.all
     end
+
+    @categories = Category.all
   end
 
   # GET /items/1
@@ -22,10 +24,12 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @categories = Category.all
   end
 
   # GET /items/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /items
@@ -34,6 +38,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     @item.published = Time.now
+
+    edit_categories
 
     respond_to do |format|
       if @item.save
@@ -49,6 +55,8 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    edit_categories
+
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -72,6 +80,21 @@ class ItemsController < ApplicationController
 
   private
 
+    # Edit the associated categories
+    def edit_categories
+      # Remove previous data
+      @item.categories.delete_all
+
+      # Retrieve checkbox ids
+      if params[:category_ids]
+        categories = Category.find(params[:category_ids])
+
+        categories.each do |category|
+          category.update_attributes(:item => @item)
+        end
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
@@ -79,7 +102,8 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :author, :price, :description, :preview_description, :published, :image)
+      params.require(:item).permit(:name, :author, :price, :description, 
+        :preview_description, :published, :image, :category_ids)
     end
 
     # Check if the user is signed in before proceed

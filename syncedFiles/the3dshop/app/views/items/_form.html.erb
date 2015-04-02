@@ -15,6 +15,23 @@
     <%= f.label :preview_description %><br>
     <%= f.text_area :preview_description, :class => "form-control" %>
   </div>
+
+  <fieldset class="group"> 
+    <legend>Select categories</legend> 
+    <ul class="checkbox">
+      <% noId = 0 %>
+      <% @categories.each do |category| %>
+        <% noId = noId + 1 %> 
+        <% id = "cb" + noId.to_s %>
+
+        <li>
+          <%= check_box_tag "category_ids[]", category.id %>
+          <%= category.name %>
+        </li>
+      <% end %>
+    </ul> 
+  </fieldset> 
+
   <div class="field">
     <%= f.label :image %><br>
     <span class="btn btn-default btn-file">

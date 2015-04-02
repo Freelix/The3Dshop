@@ -2,11 +2,12 @@
   <title>Add a model - The3DShop</title>
 <% end %>
 
+<% content_for :description do %>
+  <meta name="description" content="Create a new 3D print model">
+<% end %>
+
 <div class="container">
   <h2 class="form-signin-heading">New Item</h2>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', items_path %>
-
+  <%= render 'form' %>
+  <%= link_to 'Back', items_path %>
 </div>

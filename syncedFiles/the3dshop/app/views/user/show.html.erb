@@ -2,6 +2,10 @@
   <title><%= current_user.firstname %>'s models - The3DShop</title>
 <% end %>
 
+<% content_for :description do %>
+  <meta name="description" content="Show all models related to a user">
+<% end %>
+
 <div class="container">
   <% if @showTable %>
 

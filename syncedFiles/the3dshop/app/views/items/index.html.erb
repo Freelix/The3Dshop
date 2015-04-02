@@ -2,12 +2,26 @@
 	<title>Dortalomu - The3DShop</title>
 <% end %>
 
+<% content_for :description do %>
+  <meta name="description" content="Dortalomu - The3DShop Main page. Contains all existing 3D models">
+<% end %>
+ 
 <%= render 'items/search_box' %>
 
 <div class="container">
-		<section class="listings">
-			<div class="properties_list">
-			  <%= render 'items/results' %> 
-			</div>
-		</section>
+	<section class="listings">
+		<div class="properties_list">
+		  <%= render 'items/results' %> 
+		</div>
+	</section>
 </div>
+
+<!-- Include the Sidr JS -->
+<%= javascript_include_tag 'jquery.sidr.min' %>
+
+<script>
+$(document).ready(function() {
+  $('#simple-menu').sidr();
+  $('#simple-menu-close').sidr();
+});
+</script>

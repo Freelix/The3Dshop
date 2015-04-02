@@ -1,6 +1,6 @@
 $('#results').html("<%= escape_javascript(render :partial => 'results') %>");
 
-$(document).on("ajax:complete", "#testtt", function() {
+$(document).on("ajax:complete", "#search_form", function() {
   $("#spinner").fadeOut('fast');
 });
 
