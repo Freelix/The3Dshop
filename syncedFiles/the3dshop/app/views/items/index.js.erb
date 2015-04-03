@@ -4,6 +4,10 @@ $(document).on("ajax:complete", "#search_form", function() {
   $("#spinner").fadeOut('fast');
 });
 
+$('.category_form').bind('ajax:complete', function() {
+  $("#spinner").fadeOut('fast');
+});
+
 /*
   ajax:before
   ajax:loading

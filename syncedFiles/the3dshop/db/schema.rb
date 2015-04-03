@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150330054206) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +35,13 @@ ActiveRecord::Schema.define(version: 20150330054206) do
     t.datetime "image_updated_at"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+  end
+
+  create_table "categories_items", force: :cascade do |t|
+      t.belongs_to :item, index: true
+      t.belongs_to :category, index: true
+      t.datetime "created_at",                          null: false
+      t.datetime "updated_at",                          null: false
   end
 
   create_table "order_items", force: :cascade do |t|

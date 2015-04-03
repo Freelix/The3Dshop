@@ -2,10 +2,10 @@ class Item < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :order_items
-	has_many :categories
 
+	has_and_belongs_to_many :categories
 
-    has_attached_file :image, styles: { med: "250x250", big: "450x450" }
+    has_attached_file :image, styles: { med: "250x250!", big: "450x450!" }
 
     validates :name, presence: true
 	validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0}

@@ -6,9 +6,12 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     numberPerPage = 6
+
     if params[:search_text] != nil
       search = params[:search_text]
-      @items = Item.where("LOWER(name) like ?", "%#{search.downcase}%")  
+      @items = Item.where("LOWER(name) like ?", "%#{search.downcase}%")
+    elsif params[:search_by_category] != nil
+      @items = Item.joins(:categories).where("categories.id = ?", params[:search_by_category])
     else
       @items = Item.all
     end
@@ -20,6 +23,7 @@ class ItemsController < ApplicationController
     end
     
     @categories = Category.all
+
     @items = @items.paginate(:page => page, :per_page => numberPerPage)
   end
 
@@ -46,8 +50,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     @item.published = Time.now
-
-    edit_categories
+    @item.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @item.save
@@ -63,7 +66,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    edit_categories
+    @item.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @item.update(item_params)
@@ -87,21 +90,6 @@ class ItemsController < ApplicationController
   end
 
   private
-
-    # Edit the associated categories
-    def edit_categories
-      # Remove previous data
-      @item.categories.delete_all
-
-      # Retrieve checkbox ids
-      if params[:category_ids]
-        categories = Category.find(params[:category_ids])
-
-        categories.each do |category|
-          category.update_attributes(:item => @item)
-        end
-      end
-    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_item

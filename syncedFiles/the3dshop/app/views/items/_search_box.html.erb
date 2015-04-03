@@ -15,4 +15,9 @@
 	$(document).on("ajax:beforeSend", "#search_form", function() {
 	  $("#spinner").fadeIn('fast');
 	});
+	
+  $('.category_form').bind('ajax:beforeSend', function() {
+  	$("#simple-menu-close").click();
+    $("#spinner").fadeIn('fast');
+  });
 </script>
