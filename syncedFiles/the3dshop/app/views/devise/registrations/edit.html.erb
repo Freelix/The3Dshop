@@ -1,10 +1,7 @@
-<% content_for :title do %>
-  <title>Edit user - The3DShop</title>
-<% end %>
-
-<% content_for :description do %>
-  <meta name="description" content="Edit your account on The3DShop.ca">
-<% end %>
+<%
+meta title: "Edit user - The3DShop",
+     description: "Edit your account on The3DShop.ca"
+%>
 
 <div class="container">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
