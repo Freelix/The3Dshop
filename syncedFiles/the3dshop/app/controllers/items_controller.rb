@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
       1
     end
     
-    @categories = Category.all
+    load_categories
 
     @items = @items.paginate(:page => page, :per_page => numberPerPage)
   end
@@ -36,17 +36,18 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-    @categories = Category.all
+    load_categories
   end
 
   # GET /items/1/edit
   def edit
-    @categories = Category.all
+    load_categories
   end
 
   # POST /items
   # POST /items.json
   def create
+    load_categories
     @item = Item.new(item_params)
     @item.user = current_user
     @item.published = Time.now
@@ -84,12 +85,16 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to user_path, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
+    def load_categories
+      @categories = Category.all
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_item
