@@ -4,88 +4,93 @@ meta title: "Checkout - The3DShop",
 %>
 
 <div class="container">
-  <div class="checkout_div"> 
-    <h2>Billing information</h2>
-    <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="checkout_div"> 
+        <h2>Billing information</h2>
+        <hr>
 
-    <i class="fa fa-exclamation-triangle fa-4x"></i>
-    <p class="checkout_verify_info"><b>Please make sure those information are correct</b></p>
-    <br>
+        <i class="fa fa-exclamation-triangle fa-4x"></i>
+        <p class="checkout_verify_info"><b>Please make sure those information are correct</b></p>
+        <br>
 
-    <div class="field">
-    	<label>Firstname</label>
-    	<label class="form-control"><%= @user.firstname %></label>
+        <div class="field">
+        	<label>Firstname</label>
+        	<label class="form-control"><%= @user.firstname %></label>
+        </div>
+
+        <div class="field">
+        	<label>Lastname</label>
+        	<label class="form-control"><%= @user.lastname %></label>
+        </div>
+
+        <div class="field">
+          <label>Phone number</label>
+          <label class="form-control"><%= @user.phone_number %></label>
+        </div>
+
+        <div class="field">
+        	<label>Email</label>
+        	<label class="form-control"><%= @user.email %></label>
+        	<p class="checkout_verify_info_email">Your items will be send to this email !</p>
+        </div>
+
+        <br>
+        <%= link_to 'Edit information', edit_user_registration_path(@user), :class => "btn btn-warning" %>
+      </div>
     </div>
+    <div class="col-md-6">
+      <div class="checkout_div">
+        <h2>Order Summary</h2>
+        <hr>
 
-    <div class="field">
-    	<label>Lastname</label>
-    	<label class="form-control"><%= @user.lastname %></label>
-    </div>
+        <% total_price = 0 %>
 
-    <div class="field">
-      <label>Phone number</label>
-      <label class="form-control"><%= @user.phone_number %></label>
-    </div>
+        <table class="table table-hover checkout">
+      		<thead>
+    		    <tr>
+    		      <th>Name</th>
+    		      <th>Description</th>
+    		      <th>Price</th>
+    		    </tr>
+      		</thead>
 
-    <div class="field">
-    	<label>Email</label>
-    	<label class="form-control"><%= @user.email %></label>
-    	<p class="checkout_verify_info_email">Your items will be send to this email !</p>
-    </div>
+    			<tbody>
+        		<% @order_items.each do |order_item| %>
+        		  <% item = order_item.item %>
+        		  <% total_price += item.price %>
+    		      <tr>
+    		        <td><%= item.name %></td>
+    		        <td><%= item.preview_description %></td>
+    		        <td><%= number_to_currency item.price %></td>
+    		      </tr>
+          	<% end %>
+          </tbody>
+        </table>
+      </div>
 
-    <br>
-    <%= link_to 'Edit information', edit_user_registration_path(@user), :class => "btn btn-warning" %>
+      <div class="checkout_div">
+        <h2>Payment</h2>
+        <hr>
+
+    	  <%= form_tag checkouts_path(:total_price => total_price) do %>
+    		  <div class="checkout_div">
+    			  <article>
+    			    <label class="amount">
+    			      <span>Total: <%= number_to_currency total_price %></span>
+    			    </label>
+    			  </article>
+
+    			  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    			          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    			          data-name="The3DShop"
+    			          data-description="The3DShop - Checkout"
+    			          data-amount="<%= total_price * 100 %>"
+    			          data-email="<%= @user.email %>">
+    			  </script>
+    		  </div>
+    	  <% end %>
+    	</div>
+    <div>
   </div>
-
-  <div class="checkout_div">
-    <h2>Order Summary</h2>
-    <hr>
-
-    <% total_price = 0 %>
-
-    <table class="table table-hover checkout">
-  		<thead>
-		    <tr>
-		      <th>Name</th>
-		      <th>Description</th>
-		      <th>Price</th>
-		    </tr>
-  		</thead>
-
-			<tbody>
-    		<% @order_items.each do |order_item| %>
-    		  <% item = order_item.item %>
-    		  <% total_price += item.price %>
-		      <tr>
-		        <td><%= item.name %></td>
-		        <td><%= item.preview_description %></td>
-		        <td><%= number_to_currency item.price %></td>
-		      </tr>
-      	<% end %>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="checkout_div">
-    <h2>Payment</h2>
-    <hr>
-
-	  <%= form_tag checkouts_path(:total_price => total_price) do %>
-		  <div class="checkout_div">
-			  <article>
-			    <label class="amount">
-			      <span>Total: <%= number_to_currency total_price %></span>
-			    </label>
-			  </article>
-
-			  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-			          data-name="The3DShop"
-			          data-description="The3DShop - Checkout"
-			          data-amount="<%= total_price * 100 %>"
-			          data-email="<%= @user.email %>">
-			  </script>
-		  </div>
-	  <% end %>
-	</div>
 </div>
