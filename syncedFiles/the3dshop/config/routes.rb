@@ -15,4 +15,8 @@ Rails.application.routes.draw do
 
   # User page
   get 'user' => 'user#show'
+
+  # EmailApi
+  get 'emailapi' => 'emailapis#index'
+  post 'emailapi/subscribe' => 'emailapis#subscribe'
 end

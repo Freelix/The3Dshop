@@ -1,0 +1,11 @@
+<div class="container">
+	<h1>3D Weekly</h1>
+	<p>The 3D Weekly will allow you to stay </p>
+	<p>abreast of the latest 3D models on the market</p>
+	<hr />
+	<p>Get the 3D model of the week by email</p>
+	<%= form_tag(emailapi_subscribe_path, method: "post", id: "subscribe") do -%>
+	   <%= email_field(:email, :address, {id: "email", placeholder: "Email address"}) %>
+	   <%= submit_tag("Sign me up!") %>
+	<% end %>
+</div>

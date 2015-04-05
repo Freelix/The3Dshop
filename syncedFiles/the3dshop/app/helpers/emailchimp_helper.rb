@@ -1,0 +1,2 @@
+module EmailchimpHelper
+end
