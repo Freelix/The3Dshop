@@ -10,22 +10,22 @@ meta title: "Sign up - The3DShop",
 
     <div class="field">
       <%= f.label :firstname %>
-      <%= f.text_field :firstname, autofocus: true, :class => "form-control" %>
+      <%= f.text_field :firstname, autofocus: true, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :lastname %>
-      <%= f.text_field :lastname, :class => "form-control" %>
+      <%= f.text_field :lastname, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :phone_number %>
-      <%= f.text_field :phone_number, :class => "form-control" %>
+      <%= f.text_field :phone_number, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
