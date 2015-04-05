@@ -6,9 +6,12 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     numberPerPage = 6
+
     if params[:search_text] != nil
       search = params[:search_text]
-      @items = Item.where("LOWER(name) like ?", "%#{search.downcase}%")  
+      @items = Item.where("LOWER(name) like ?", "%#{search.downcase}%")
+    elsif params[:search_by_category] != nil
+      @items = Item.joins(:categories).where("categories.id = ?", params[:search_by_category])
     else
       @items = Item.all
     end
@@ -18,6 +21,9 @@ class ItemsController < ApplicationController
     else
       1
     end
+    
+    load_categories
+
     @items = @items.paginate(:page => page, :per_page => numberPerPage)
   end
 
@@ -30,18 +36,22 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    load_categories
   end
 
   # GET /items/1/edit
   def edit
+    load_categories
   end
 
   # POST /items
   # POST /items.json
   def create
+    load_categories
     @item = Item.new(item_params)
     @item.user = current_user
     @item.published = Time.now
+    @item.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @item.save
@@ -57,6 +67,8 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    @item.categories = Category.find(params[:category_ids]) if params[:category_ids]
+
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -73,12 +85,16 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to user_path, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
+    def load_categories
+      @categories = Category.all
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -87,7 +103,8 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :author, :price, :description, :preview_description, :published, :image)
+      params.require(:item).permit(:name, :author, :price, :description, 
+        :preview_description, :published, :image, :category_ids)
     end
 
     # Check if the user is signed in before proceed

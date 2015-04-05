@@ -1,6 +1,7 @@
-<% content_for :title do %>
-  <title>Edit user - The3DShop</title>
-<% end %>
+<%
+meta title: "Edit user - The3DShop",
+     description: "Edit your account on The3DShop.ca"
+%>
 
 <div class="container">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
@@ -8,22 +9,22 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <div class="field">
       <%= f.label :firstname %>
-      <%= f.text_field :firstname, autofocus: true, :class => "form-control" %>
+      <%= f.text_field :firstname, autofocus: true, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :lastname %>
-      <%= f.text_field :lastname, :class => "form-control" %>
+      <%= f.text_field :lastname, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :phone_number %>
-      <%= f.text_field :phone_number, :class => "form-control" %>
+      <%= f.text_field :phone_number, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :email %>
-      <%= f.email_field :email, :class => "form-control" %>
+      <%= f.email_field :email, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

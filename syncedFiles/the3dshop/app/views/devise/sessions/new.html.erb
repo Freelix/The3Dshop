@@ -1,13 +1,14 @@
-<% content_for :title do %>
-  <title>Sign In - The3DShop</title>
-<% end %>
+<%
+meta title: "Sign In - The3DShop",
+     description: "Log in with on the 3DShop and browse all the 3d print models !"
+%>
 
 <div class="container">
   <h2 class="form-signin-heading">Sign in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %>
-      <%= f.email_field :email, :class => "form-control" %>
+      <%= f.email_field :email, :autocomplete => "off", :class => "form-control" %>
     </div>
     <div class="field">
       <%= f.label :password %>

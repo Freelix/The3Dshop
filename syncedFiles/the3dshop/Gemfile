@@ -35,6 +35,9 @@ gem 'stripe'
 # Used for Sitemap
 gem "dynamic_sitemaps"
 
+# Used for meta tag
+gem 'metamagic'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

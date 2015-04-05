@@ -1,6 +1,7 @@
-<% content_for :title do %>
-  <title>Forgot your password - The3DShop</title>
-<% end %>
+<%
+meta title: "Forgot your password - The3DShop",
+     description: "Forgot your password? No problem, you can get it back !"
+%>
 
 <div class="container">
     <h2 class="form-signin-heading">Forgot your password?</h2>
@@ -9,7 +10,7 @@
 
 	  <div class="field">
 	    <%= f.label :email %><br />
-	    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+	    <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control" %>
 	  </div>
 
 	  <div class="actions">

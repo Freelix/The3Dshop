@@ -15,4 +15,8 @@
 	<% else %>
 	  <h1>No item found</h1>
 	<% end %>
-</div> 
+
+	<div class='pageSelector' >
+      <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
+    </div>
+</div>

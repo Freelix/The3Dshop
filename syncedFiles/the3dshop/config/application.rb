@@ -22,12 +22,5 @@ module The3dshop
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
-    # include additionnal css and js files
-    config.assets.precompile += %w( style.css )
-    config.assets.precompile += %w( footer.css )
-    config.assets.precompile += %w( table.css )
-    config.assets.precompile += %w( search_box.css )
-    config.assets.precompile += %w( bootstrap.min.css )
   end
 end

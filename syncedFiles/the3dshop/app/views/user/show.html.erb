@@ -1,6 +1,7 @@
-<% content_for :title do %>
-  <title><%= current_user.firstname %>'s models - The3DShop</title>
-<% end %>
+<%
+meta title: current_user.firstname + "'s models - The3DShop",
+     description: "Show all models related to a user"
+%>
 
 <div class="container">
   <% if @showTable %>

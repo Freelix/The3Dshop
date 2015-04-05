@@ -1,6 +1,7 @@
-<% content_for :title do %>
-  <title>Sign up - The3DShop</title>
-<% end %>
+<%
+meta title: "Sign up - The3DShop",
+     description: "Create a new account to be able to publish and buy 3d models"
+%>
 
 <div class="container">
   <h2 class="form-signin-heading">Sign up</h2>
@@ -9,22 +10,22 @@
 
     <div class="field">
       <%= f.label :firstname %>
-      <%= f.text_field :firstname, autofocus: true, :class => "form-control" %>
+      <%= f.text_field :firstname, autofocus: true, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :lastname %>
-      <%= f.text_field :lastname, :class => "form-control" %>
+      <%= f.text_field :lastname, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :phone_number %>
-      <%= f.text_field :phone_number, :class => "form-control" %>
+      <%= f.text_field :phone_number, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control" %>
     </div>
 
     <div class="field">

@@ -1,20 +1,37 @@
 <%= form_for @item, html: { multipart: true } do |f| %>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, autofocus: true, :class => "form-control" %>
+    <%= f.text_field :name, autofocus: true, :autocomplete => "off", :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
-    <%= f.text_field :price, :class => "form-control" %>
+    <%= f.text_field :price, :autocomplete => "off", :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description, :class => "form-control item_description" %>
+    <%= f.text_area :description, :autocomplete => "off", :class => "form-control item_description" %>
   </div>
   <div class="field">
     <%= f.label :preview_description %><br>
-    <%= f.text_area :preview_description, :class => "form-control" %>
+    <%= f.text_area :preview_description, :autocomplete => "off", :class => "form-control" %>
   </div>
+
+  <fieldset class="group"> 
+    <legend>Select categories</legend> 
+    <ul class="checkbox">
+      <% noId = 0 %>
+      <% @categories.each do |category| %>
+        <% noId = noId + 1 %> 
+        <% id = "cb" + noId.to_s %>
+
+        <li>
+          <%= check_box_tag "category_ids[]", category.id %>
+          <%= category.name %>
+        </li>
+      <% end %>
+    </ul> 
+  </fieldset> 
+
   <div class="field">
     <%= f.label :image %><br>
     <span class="btn btn-default btn-file">

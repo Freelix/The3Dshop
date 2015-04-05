@@ -1,14 +1,23 @@
-<%= form_tag items_path, :method => :get, :remote => true, :id => "testtt", :class => "form-wrapper-search-box cf" do %>
-  <%= text_field_tag :search_text, nil, :placeholder => "Search here..." %>
-  <%= submit_tag "Search", :class => "form-wrapper-search-box button_style" %>
-<% end %>
+<div class="form-wrapper-search-box cf">
+	<%= form_tag items_path, :method => :get, :remote => true, :id => "search_form" do %>
+	  <%= text_field_tag :search_text, nil, :autocomplete => "off", :placeholder => "Search here..." %>
+	  <%= submit_tag "Search", :class => "form-wrapper-search-box button_style" %>
+	<% end %>
+
+	<%= render 'items/category_panel' %>
+</div>
 
 <div id="spinner">
   <%= image_tag("loader.gif", alt: "Loading...") %>
 </div>
 
 <script>
-	$(document).on("ajax:beforeSend", "#testtt", function() {
+	$(document).on("ajax:beforeSend", "#search_form", function() {
 	  $("#spinner").fadeIn('fast');
 	});
+	
+  $('.category_form').bind('ajax:beforeSend', function() {
+  	$("#simple-menu-close").click();
+    $("#spinner").fadeIn('fast');
+  });
 </script>
