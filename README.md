@@ -1,7 +1,7 @@
 ### Nom des coéquipiers :
 Mathieu Lavoie - 12 101 575  
 Félix Baril - 12 108 480  
-Alexandre Roy  
+Alexandre Roy - 12 079 225  
 Alex Provencher - 11 173 124  
 
 ### Adresse de votre site Web (URL)
