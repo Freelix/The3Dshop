@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :redirect_domain
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -31,6 +32,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:firstname, :lastname, :phone_number, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:firstname, :lastname, :phone_number, :email, :current_password, :password, :password_confirmation) }
+  end
+
+  def redirect_domain
+    if request.host == 'www.the3dshop.ca'
+      redirect_to 'http://the3dshop.ca' + request.fullpath
+    end
   end
 
 end
