@@ -25,6 +25,7 @@ categories.push(Category.create id: 3, name: "People")
 categories.push(Category.create id: 4, name: "Gaming")
 categories.push(Category.create id: 5, name: "TV Show")
 categories.push(Category.create id: 6, name: "Science Fiction")
+categories.push(Category.create id: 7, name: "Others")
 
 categories.each do |i|
     if not i.save()
