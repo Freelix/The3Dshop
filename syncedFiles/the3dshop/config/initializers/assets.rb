@@ -15,9 +15,4 @@ Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( jquery.sidr.min.js )
 
 # CSS Files
-Rails.application.config.assets.precompile += %w( style.css )
-Rails.application.config.assets.precompile += %w( footer.css )
-Rails.application.config.assets.precompile += %w( table.css )
-Rails.application.config.assets.precompile += %w( search_box.css )
-Rails.application.config.assets.precompile += %w( bootstrap.min.css )
-Rails.application.config.assets.precompile += %w( jquery.sidr.dark.css )
+Rails.application.config.assets.precompile += %w( combine.min.css )

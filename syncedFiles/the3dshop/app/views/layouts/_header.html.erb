@@ -1,6 +1,8 @@
 <!-- Stripe -->
 <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
 
+<meta charset="utf-8">
+
 <!-- Default settings -->
 <%= csrf_meta_tags %>
 
@@ -8,19 +10,12 @@
 <%= metamagic %>
 
 <!-- Custom files -->
-<%= stylesheet_link_tag "style" %>
-<%= stylesheet_link_tag "footer" %>
-<%= stylesheet_link_tag "table" %>
-<%= stylesheet_link_tag "search_box" %>
+<%= stylesheet_link_tag "combine.min" %>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-<!-- Include Sidr bundled CSS theme -->
-<%= stylesheet_link_tag "jquery.sidr.dark" %>
 
 <!-- Used for responsive pages -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta property="og:image" content="assets/images/dortalomu.jpg"/>
