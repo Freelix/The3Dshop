@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     elsif params[:search_by_category] != nil
       @items = Item.joins(:categories).where("categories.id = ?", params[:search_by_category])
     else
-      @items = Item.all
+      @items = Item.all.order(created_at: :desc)
     end
 
     page = if params[:page].to_i > 0

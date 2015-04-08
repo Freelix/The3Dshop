@@ -3,9 +3,11 @@
 <div id="sidr">
   <ul>
 	    <% @categories.each do |category| %>
-	       <%= link_to items_path(:search_by_category => category.id), method: :get, remote: true, class: 'category_form' do %>
-	         <li><%= category.name %></li>
-         <% end %>
+	       
+	       <li><%= link_to items_path(:search_by_category => category.id), method: :get, remote: true, class: 'category_form' do %>
+	       	<%= category.name %>
+	       	<% end %>
+	       </li>
       <% end %>
 
     <a id="simple-menu-close" class="btn btn-primary closeCategories" href="#">Close panel</a>
