@@ -5,7 +5,8 @@ class Item < ActiveRecord::Base
 
 	has_and_belongs_to_many :categories
 
-    has_attached_file :image, styles: { med: "250x250!", big: "450x450!" }
+    has_attached_file :image, styles: { med: "250x250!", big: "450x450!" },
+    	processors: [:thumbnail, :compression]
 
     validates :name, presence: true
 	validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0}

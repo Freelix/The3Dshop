@@ -22,6 +22,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Utility for images, works with ImageMagick
 gem 'paperclip'
+gem 'paperclip-compression'
 
 # Utility for authentification
 gem 'devise'
