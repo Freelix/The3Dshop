@@ -51,6 +51,10 @@ items_list.push(Item.create user: user, name: 'CloneTrooper', price: '59.99',des
                 preview_description: 'Clone Trooper (textured)',image_file_name: 'cloneTrooper.jpg', image: image,
                 categories: categories)
 
+image = File.open(File.join(Rails.root, 'images/stormtrooper_helmet.jpg'))
+items_list.push(Item.create user: user, name: 'Stormtrooper helmet', price: '39.99',description: 'A badass stormtrooper helmet', 
+                preview_description: 'Stormtrooper helmet (textured)',image_file_name: 'stormtrooper_helmet.jpg', image: image,
+                categories: categories)
 
 image = File.open(File.join(Rails.root, 'images/darth-vader-tie-fighter.jpg'))
 items_list.push( Item.create user: user, name: 'Tie Fighter', price: '19.99',description: 'Darth vader X1 TIE fighter', 
