@@ -1,11 +1,30 @@
+<%
+meta title: "Sign up to newsletter - The3DShop",
+     description: "Sign up to the 3D newsletter!"
+%>
+
+
 <div class="container">
-	<h1>3D Weekly</h1>
-	<p>The 3D Weekly will allow you to stay </p>
-	<p>abreast of the latest 3D models on the market</p>
-	<hr />
-	<p>Get the 3D model of the week by email</p>
-	<%= form_tag(emailapi_subscribe_path, method: "post", id: "subscribe") do -%>
-	   <%= email_field(:email, :address, {id: "email", placeholder: "Email address"}) %>
-	   <%= submit_tag("Sign me up!") %>
+	<% if @success==true %>
+		<h2>Thank you for registering to our newsletter !</h2> 
+		<br>
+		<h3>An email has been sent to <strong><%= @email %></strong>. Open it to validate your subscription! </h3>
+	
+	<% else %>
+		<h1>3D Monthly</h1>
+		<p>The 3D Monthly will allow you to stay </p>
+		<p>in touch with the latest 3D models on the market</p>
+		<hr />
+		<h4>Get the 3D model of the month by email</h4>
+		<%= form_tag(emailapi_subscribe_path, method: "post", id: "subscribe") do -%>
+			<div class="field">
+		  	<%= email_field(:email, :address, {id: "email", placeholder: "Email address", class: "form-control"}) %>
+		  </div>
+		  <div class="actions">
+		  	<%= submit_tag("Sign me up!", class: "btn btn-lg btn-primary btn-block") %> 
+		  </div>
+		<% end %>
+		
 	<% end %>
+	
 </div>
