@@ -25,7 +25,7 @@ class EmailapisController < ApplicationController
 	      when 502
 	        @email_error = "Invalid Address!"
 	      when 214
-	        @email_error = "This email has already signed up!"
+	        @email_error = "This email is already signed up!"
 	      else
 	        @email_error = response['error']
       end
