@@ -20,7 +20,7 @@ Résumé de vos efforts
 * Twitter
 	* Demander aux amis de s'abonner
 
-##### Analytics et Webmaster tools
+##### Synchroniser avec analytics et Webmaster tools
 
 * Google
 	* Ajouter notre siteMap
@@ -29,14 +29,14 @@ Résumé de vos efforts
 	* Ajouter notre siteMap
 	* Synchroniser notre site web avec Bing/Yahoo analytics et Bing/Yahoo webmaster tools
 
-##### Meta tag
+##### Avoir des tag Meta 
 
 * Titre
 	* Presque chaque page à un titre significatif
 * Description
 	* Presque chaque page à une description significative
 
-##### OG tag
+##### Avoir des tag OG
 
 * Facebook
 * Twitter
