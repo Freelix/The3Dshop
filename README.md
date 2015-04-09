@@ -10,24 +10,42 @@ http://the3dshop.ca/
 
 ### Résumé des efforts SEO :
 
-___Structure à titre d'exemple___
-
 Résumé de vos efforts
 
-##### Section 1
+##### S'afficher dans les réseaux sociaux
 
-* Point 1
-	* Sous-point 1.1
-	* Sous-point 1.2
-* Point 2
-	* Sous-point 2.1
-	* Sous-point 2.2
+* Facebook
+	* Demander aux amis de partager notre page
+	* Demander aux amis de "liker" notre page
+* Twitter
+	* Demander aux amis de s'abonner
 
-##### Section 2
+##### Synchroniser avec analytics et Webmaster tools
 
-* Point 2
-	* Sous-point 2.1
-	* Sous-point 2.2
+* Google
+	* Ajouter notre siteMap
+	* Synchroniser notre site web avec google analytics et google webmaster tools
+* Bing et Yahoo
+	* Ajouter notre siteMap
+	* Synchroniser notre site web avec Bing/Yahoo analytics et Bing/Yahoo webmaster tools
+
+##### Avoir des tag Meta 
+
+* Titre
+	* Presque chaque page à un titre significatif
+* Description
+	* Presque chaque page à une description significative
+
+##### Avoir des tag OG
+
+* Facebook
+* Twitter
+
+### Informations concernant mailChimp
+
+* Username : alexandreRoy90
+* Password : ABCdef123$
+	
 
 ---
 
