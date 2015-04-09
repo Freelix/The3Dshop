@@ -8,9 +8,17 @@ meta title: "Sign up to newsletter - The3DShop",
 	<% if @success==true %>
 		<h2>Thank you for registering to our newsletter !</h2> 
 		<br>
-		<h3>An email has been sent to <strong><%= @email %></strong>. Open it to validate your subscription! </h3>
-	
+		<div class="alert alert-success" role="alert">	 
+			<h3>An email has been sent to <strong><%= @email %></strong>. Open it to validate your subscription! </h3>
+		</div>
 	<% else %>
+	  <% if @error==true %>
+			<div class="alert alert-danger" role="alert">
+				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				  <span class="sr-only">Error:</span>
+				  <%= @subscribe %>
+		  </div>
+	  <% end %>
 		<h1>3D Monthly</h1>
 		<p>The 3D Monthly will allow you to stay </p>
 		<p>in touch with the latest 3D models on the market</p>
@@ -24,7 +32,7 @@ meta title: "Sign up to newsletter - The3DShop",
 		  	<%= submit_tag("Sign me up!", class: "btn btn-lg btn-primary btn-block") %> 
 		  </div>
 		<% end %>
-		
+
 	<% end %>
 	
 </div>
