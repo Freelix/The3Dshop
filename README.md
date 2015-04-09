@@ -40,6 +40,11 @@ Résumé de vos efforts
 
 * Facebook
 * Twitter
+
+### Informations concernant mailChimp
+
+* Username : alexandreRoy90
+* Password : ABCdef123$
 	
 
 ---
